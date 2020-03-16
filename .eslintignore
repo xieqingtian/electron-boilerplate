@@ -1,0 +1,8 @@
+typings
+node_modules
+devtools
+.vscode
+dist
+release
+**/*.scss
+qt.config.js

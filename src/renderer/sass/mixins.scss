@@ -1,0 +1,15 @@
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+}
+
+@mixin text-ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
