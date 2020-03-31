@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-    count: 0
+    count: 0,
 };
 
 const count = createSlice({
@@ -15,11 +15,11 @@ const count = createSlice({
                     break;
                 case action.payload < 0:
                     state.count--;
-                default:
                     break;
+                default:
             }
-        }
-    }
+        },
+    },
 });
 
 export const { changeCount } = count.actions;
