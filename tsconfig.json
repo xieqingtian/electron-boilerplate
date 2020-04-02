@@ -5,7 +5,13 @@
         "lib": ["dom", "es2015", "es2016", "es2017"],
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"]
+            "@/api": ["src/renderer/api"],
+            "@/api/*": ["src/renderer/api/*"],
+            "@/components/*": ["src/renderer/components/*"],
+            "@/utils/*": ["src/renderer/utils/*"],
+            "@/hooks": ["src/renderer/hooks"],
+            "@/store": ["src/renderer/store"],
+            "@/store/*": ["src/renderer/store/*"]
         },
         "jsx": "react",
         "noImplicitAny": true,
