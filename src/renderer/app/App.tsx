@@ -3,8 +3,8 @@ import { hot } from 'react-hot-loader/root';
 import { useSelector } from 'react-redux';
 
 import './App.scss';
+import { RootState } from '@/renderer/store/rootReducer';
 import Hello from '../features/Hello';
-import { RootState } from '@/store/rootReducer';
 
 function App() {
     const count = useSelector((state: RootState) => state.count.count);

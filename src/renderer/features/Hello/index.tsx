@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { changeCount } from '@/renderer/store/countSlice';
+import { RootState } from '@/renderer/store/rootReducer';
 import styles from './index.module.scss';
-import { changeCount } from '@/store/countSlice';
-import { RootState } from '@/store/rootReducer';
 
 type Props = {
     name: string;
