@@ -34,7 +34,7 @@
         "@hot-loader/react-dom": "16.13.0",
         "@types/electron-devtools-installer": "^2.2.0",
         "@types/lodash": "^4.14.149",
-        "@types/react": "^16.9.31",
+        "@types/react": "^16.9.32",
         "@types/react-dom": "^16.9.6",
         "@types/react-redux": "^7.1.7",
         "@umijs/fabric": "^2.0.7",
