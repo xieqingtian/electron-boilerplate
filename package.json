@@ -18,7 +18,8 @@
         "lint:ts": "eslint \"src/**/*.{ts,tsx}\" --quiet --fix",
         "lint:style": "stylelint --fix \"src/**/*.scss\" --syntax scss",
         "format": "prettier --config \".prettierrc.js\" --write \"src/**/*.{ts,tsx,scss}\"",
-        "tsc": "tsc --noEmit"
+        "tsc": "tsc --noEmit",
+        "clean": "rimraf node_modules/.cache/hard-source/"
     },
     "dependencies": {},
     "devDependencies": {
