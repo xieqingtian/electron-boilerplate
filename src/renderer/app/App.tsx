@@ -12,7 +12,7 @@ function App() {
     return (
         <div>
             <h1 className="h1">{count}</h1>
-            <Hello name="哈哈" />
+            <Hello />
         </div>
     );
 }

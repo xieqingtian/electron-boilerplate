@@ -12,6 +12,7 @@ let pageUrl = url.format({
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 if (isDevelopment) {
+    process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
     pageUrl = `http://localhost:4200`;
 }
 
@@ -27,7 +28,7 @@ const installExtensions = () => {
             .filter((toolPath) => toolPath !== '');
         devtoolsPath.forEach((item) => BrowserWindow.addDevToolsExtension(item));
     } catch (error) {
-        console.error(error.message);
+        // console.error(error.message);
     }
 };
 
@@ -39,6 +40,10 @@ const createWindow = () => {
     win = new BrowserWindow({
         width: 800,
         height: 600,
+        webPreferences: {
+            nodeIntegration: true,
+            webSecurity: false,
+        },
     });
 
     win.webContents.once('dom-ready', () => {
@@ -65,3 +70,5 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+app.allowRendererProcessReuse = true;
