@@ -65,6 +65,9 @@
     "build": {
         "productName": "electron模板",
         "appId": "org.your.productname",
+        "files": [
+            "dist"
+        ],
         "mac": {
             "category": "your.app.category.type"
         },
