@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { useSelector } from 'react-redux';
+import { createGlobalStyle } from 'styled-components';
 
-import './App.scss';
-import { RootState } from '@/store/rootReducer';
-import Hello from '../features/Hello';
+import Header from '../features/Header';
+import Counter from '../features/Counter';
+
+const GlobalStyle = createGlobalStyle`
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: '微软雅黑'
+    }
+
+    html,
+    body,
+    #root {
+        width: 100%;
+        height: 100%;
+    }
+`;
 
 function App() {
-    const count = useSelector((state: RootState) => state.count.count);
-
     return (
-        <div>
-            <h1 className="h1">{count}</h1>
-            <Hello />
-        </div>
+        <Fragment>
+            <GlobalStyle />
+            <Header />
+            <Counter />
+        </Fragment>
     );
 }
 

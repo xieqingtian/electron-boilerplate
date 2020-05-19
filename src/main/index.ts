@@ -28,7 +28,7 @@ const installExtensions = () => {
             .filter((toolPath) => toolPath !== '');
         devtoolsPath.forEach((item) => BrowserWindow.addDevToolsExtension(item));
     } catch (error) {
-        // console.error(error.message);
+        //
     }
 };
 
@@ -38,8 +38,9 @@ const createWindow = () => {
     }
 
     win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 900,
+        height: 700,
+        icon: 'logo.ico',
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,
