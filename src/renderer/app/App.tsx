@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle } from 'styled-components';
 
-import Header from '../features/Header';
-import Counter from '../features/Counter';
+import { Header } from '../features/Header';
+import { Counter } from '../features/Counter';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -21,14 +21,12 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-function App() {
-    return (
-        <Fragment>
-            <GlobalStyle />
-            <Header />
-            <Counter />
-        </Fragment>
-    );
-}
+const App = () => (
+    <Fragment>
+        <GlobalStyle />
+        <Header />
+        <Counter />
+    </Fragment>
+);
 
 export default hot(App);

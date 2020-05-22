@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { RootState } from './rootReducer';
 
-const initialState = {
+export const initialState = {
     value: 0,
 };
 

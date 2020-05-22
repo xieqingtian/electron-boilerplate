@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Button } from 'antd';
 
 import logo from './logo.jpg';
 
-export default function Header() {
+type Props = {};
+
+export const Header: FC<Props> = () => {
     return (
         <Container>
             <Logo src={logo} />
@@ -19,7 +21,7 @@ export default function Header() {
             </Button>
         </Container>
     );
-}
+};
 
 const Container = styled.header`
     padding: 64px;
