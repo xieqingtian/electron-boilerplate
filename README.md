@@ -40,7 +40,7 @@ yarn build
 
 # Reference
 
--   打包问题若遇到下载问题参考[这里](https://blog.csdn.net/u010982507/article/details/101236913)
+- 打包问题若遇到下载问题参考[这里](https://blog.csdn.net/u010982507/article/details/101236913)
 
 # Display
 
