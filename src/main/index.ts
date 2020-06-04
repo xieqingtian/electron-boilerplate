@@ -41,6 +41,7 @@ const createWindow = () => {
         width: 900,
         height: 700,
         icon: 'logo.ico',
+        title: 'Electron App',
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,
