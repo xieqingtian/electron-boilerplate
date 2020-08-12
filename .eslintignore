@@ -6,3 +6,5 @@ dist
 release
 **/*.scss
 qt.config.js
+.eslintrc.js
+stylelint.config.js

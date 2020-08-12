@@ -1,7 +1,7 @@
-import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import url from 'url';
-import fs from 'fs';
+import { app, BrowserWindow } from 'electron';
+// import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 
 let win: BrowserWindow | null;
 let pageUrl = url.format({
@@ -16,27 +16,7 @@ if (isDevelopment) {
     pageUrl = `http://localhost:4200`;
 }
 
-const installExtensions = () => {
-    try {
-        const installedDevtools = Object.keys(BrowserWindow.getDevToolsExtensions());
-        const devtoolsDir = 'devtools';
-        const devtoolsPath = fs
-            .readdirSync(devtoolsDir)
-            .map((toolName) =>
-                installedDevtools.includes(toolName) ? '' : path.join(devtoolsDir, toolName),
-            )
-            .filter((toolPath) => toolPath !== '');
-        devtoolsPath.forEach((item) => BrowserWindow.addDevToolsExtension(item));
-    } catch (error) {
-        //
-    }
-};
-
 const createWindow = () => {
-    if (isDevelopment) {
-        installExtensions();
-    }
-
     win = new BrowserWindow({
         width: 900,
         height: 700,
@@ -72,5 +52,11 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+// app.whenReady().then(() => {
+//     installExtension(REDUX_DEVTOOLS)
+//         .then((name: string) => console.log(`Added Extension:  ${name}`))
+//         .catch((err: Error) => console.log('An error occurred: ', err));
+// });
 
 app.allowRendererProcessReuse = true;
