@@ -1,7 +1,7 @@
 import path from 'path';
 import url from 'url';
-import { app, BrowserWindow } from 'electron';
-// import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
+import fs from 'fs-extra';
+import { app, BrowserWindow, session } from 'electron';
 
 let win: BrowserWindow | null;
 let pageUrl = url.format({
@@ -15,6 +15,27 @@ if (isDevelopment) {
     process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
     pageUrl = `http://localhost:4200`;
 }
+
+const installExtensions = () => {
+    const devtoolsDir = 'devtools';
+    const isElectron9 = !!session.defaultSession.getExtension;
+    const installedDevtools = isElectron9
+        ? session.defaultSession.getAllExtensions().map((item) => item.name)
+        : Object.keys(BrowserWindow.getDevToolsExtensions());
+
+    fs.readdirSync(devtoolsDir).forEach((toolName) => {
+        const toolPath = path.join(devtoolsDir, toolName);
+
+        if (installedDevtools.includes(toolName)) return;
+        if (isElectron9) {
+            session.defaultSession.loadExtension(toolPath).catch((error) => {
+                console.log(error);
+            });
+        } else {
+            BrowserWindow.addDevToolsExtension(toolPath);
+        }
+    });
+};
 
 const createWindow = () => {
     win = new BrowserWindow({
@@ -39,6 +60,10 @@ const createWindow = () => {
     win.loadURL(pageUrl);
 };
 
+app.whenReady().then(() => {
+    if (isDevelopment && win) installExtensions();
+});
+
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
@@ -52,11 +77,3 @@ app.on('activate', () => {
         createWindow();
     }
 });
-
-// app.whenReady().then(() => {
-//     installExtension(REDUX_DEVTOOLS)
-//         .then((name: string) => console.log(`Added Extension:  ${name}`))
-//         .catch((err: Error) => console.log('An error occurred: ', err));
-// });
-
-app.allowRendererProcessReuse = true;
