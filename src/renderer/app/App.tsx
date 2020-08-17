@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle } from 'styled-components';
 
 import { Header } from '../features/Header';
@@ -29,4 +28,4 @@ const App = () => (
     </Fragment>
 );
 
-export default hot(App);
+export default App;
