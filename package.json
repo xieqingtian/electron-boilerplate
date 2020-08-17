@@ -24,7 +24,6 @@
     "dependencies": {},
     "devDependencies": {
         "@ant-design/icons": "^4.2.2",
-        "@hot-loader/react-dom": "16.13.0",
         "@reduxjs/toolkit": "^1.4.0",
         "@types/lodash": "^4.14.159",
         "@types/react": "^16.9.46",
