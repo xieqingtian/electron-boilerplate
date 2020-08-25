@@ -24,7 +24,7 @@ const installExtensions = () => {
         : Object.keys(BrowserWindow.getDevToolsExtensions());
 
     fs.readdirSync(devtoolsDir).forEach((toolName) => {
-        const toolPath = path.join(devtoolsDir, toolName);
+        const toolPath = path.resolve(devtoolsDir, toolName);
 
         if (installedDevtools.includes(toolName)) return;
         if (isElectron9) {
