@@ -33,7 +33,7 @@
         "@umijs/fabric": "^2.2.2",
         "antd": "^4.6.5",
         "axios": "^0.20.0",
-        "electron": "10.1.2",
+        "electron": "10.2.0",
         "electron-builder": "^22.8.1",
         "eslint": "^7.10.0",
         "husky": "^4.3.0",
